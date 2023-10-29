@@ -1,4 +1,4 @@
-# qbit-hardlinker
+# qbit-hardlinker (based on Categories)
 Bash script to automatically hardlink completed torrents
 
 When a torrent is completed this script will automatically recreate the directory structure¹ and create hardlinks of all the source files to the destination directory of your choice. This is really practical if you want keep seeding on private trackers while being able to post-process your files for your media server without wasting storage space.
@@ -27,10 +27,10 @@ nano qbit-hardlinker.sh
 
 4. qBittorent > Tools > Options > Downloads Tab and scroll down to *Run external program* section and check the box *Run external program on torrent finished*
 
-5. Add the script path, ``%N`` and ``%D`` parameters in the text field to match the example below
+5. Add the script path, ``%N`` and ``%D`` and ``%L`` parameters in the text field to match the example below
 
 ````
-/configs/qbit-hardlinker.sh "%N" "%D"
+/configs/qbit-hardlinker.sh "%N" "%D" "%L"
 ````
 
 
