@@ -5,15 +5,22 @@ download_path="$2"
 torrent_name="$1"
 torrent_label="$3"
 
-# The destination folder
-destination="/home4/user/downloads/qbittorrent/$torrent_label"
+# if Category is empty then set it to SYNC
 
-# Validate that the required parameters have been passed
-if [ -z "$download_path" ] || [ -z "$torrent_name" ] || [ -z "$destination" ] || [ -z "$torrent_label" ]; then
-  echo "Error: missing required parameters."
-  echo "Usage: $0 <torrent name> <download path>"
-  exit 1
-fi
+if [ -z "$torrent_label" ];
+    then
+        torrent_label="SYNC"
+    fi
+
+# if category is SEED then do nothing
+
+if ["$torrent_label" == "SEED"];
+    then
+        exit 0
+    fi
+
+# The destination folder
+destination="/home4/foghorn/downloads/qbittorrent/$torrent_label"
 
 cp -lR "$download_path/$torrent_name" "$destination/"
 
